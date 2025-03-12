@@ -1,7 +1,7 @@
 # clocked
 A clock build with RGB light indicators.
 
-IMAGES
+https://github.com/user-attachments/assets/19da2db1-5a2d-457d-999b-6be772b56d4c
 
 Clocked helps young children learn reading the clock while also teaching time management.
 
