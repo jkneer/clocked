@@ -33,8 +33,11 @@ We use a low cost 4 channel level shift to get the data signal for the LED strip
  - Ikea Trömma Clock
 
 ## License
-The software of this project is licensed under the Apache License (version 2.0) or the MIT license.
+The software of this project is licensed under the Apache License (version 2.0) or the MIT license at your choice.
 The hardware of this project is licensed under the permissive CERN OpenHardware license (CERN-OHL-W-2.0)
+
+Unless you explicitly state otherwise, any software or documentation contribution intentionally submitted for inclusion in the clocked project by you, as defined in the Apache-2.0 license, shall be dually licensed as above, without any additional terms or conditions.
+Any intentional contribution to the hardware design should be licensed under the CERN OHL-W-V2.0 unless you explicitely state otherwise.
 
 See [LICENSE-Apache](LICENSE-Apache.txt), [LICENSE-MIT](LICENSE-MIT.txt), and
 [LICENSE-CERN-OHL-W-20](LICENSE-CERN-OHL-W-20.txt) for details.
