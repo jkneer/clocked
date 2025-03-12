@@ -13,14 +13,24 @@ The project is targetted to parents and teachers
 Children 
 # hardware
 The mechanical CAD work is done in onshape and can be found here: [mechanical design files](https://cad.onshape.com/documents/c5d2af0e8c6398f21e146574/w/c31c92c8e362af9e481c19e6/e/3c8fc13ddff8f8868382d92b)
+The current version of the design can be found in the hardware directory. There are two parts, the "mirror" and an adapter to the analog clock used. For the prototype we have used an IKEA Trömma analog clock. If you want to use a differen clock that has a smaller diameter than the mirror, you only need to design an adapter to hold the mirror in place.
+
+## LED strip
+We are using a ws2812b strip with 74LED per meter from bft lighting (we use 60 LED, one for each minute). There is a mirror design for 144LED per meter (2 LED per minute pocket) on onshape. But that design is not as finely tuned as the 60 LED one. We had some reservations on potential power draw when all LEDs are turned on.
+
+## Processor
+We use a esp32-s3 mini board. Using a USB-C Board should give a power budget of 15W (given the power supply) without any power delivery negotiation necessary via USB.
+
+## Level Shift
+We use a low cost 4 channel level shift to get the data signal for the LED strip from the processors native 3,3V to a 5V level.
 
 # software
 
 ## BOM
- - 144LED/m RGB LED stripe with ws2812a/b, ws2813 driver
- - esp32
- - ...
- - Ikea Clock
+ - 74LED/m RGB LED stripe with ws2812a/b driver
+ - esp32-s2 mini board
+ - 4 channel level shifter
+ - Ikea Trömma Clock
 
 ## License
 The software of this project is licensed under the Apache 2.0 or the MIT license.
