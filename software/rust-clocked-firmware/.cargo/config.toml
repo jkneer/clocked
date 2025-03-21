@@ -3,7 +3,8 @@ runner = "espflash flash --monitor --chip esp32s3 --log-format defmt"
 
 
 [env]
-ESP_LOG = "info"
+ESP_LOG = "debug"
+DEFMT_LOG = "debug"
 
 [build]
 rustflags = ["-C", "link-arg=-nostartfiles"]
