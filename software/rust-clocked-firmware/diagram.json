@@ -1,34 +1,1100 @@
 {
-    "version": 1,
-    "editor": "wokwi",
-    "author": "Johannes Kneer <johannes.kneer@nuflo.eu>",
-    "parts": [
-        {
-            "type": "board-esp32-s3-devkitc-1",
-            "id": "esp",
-            "top": 0.59,
-            "left": 0.67,
-            "attrs": {
-                "flashSize": "16"
-            }
-        }
-    ],
-    "connections": [
-        [
-            "esp:TX",
-            "$serialMonitor:RX",
-            "",
-            []
-        ],
-        [
-            "esp:RX",
-            "$serialMonitor:TX",
-            "",
-            []
-        ]
-    ],
-    "serialMonitor": {
-        "display": "terminal",
-        "convertEol": true
+  "version": 1,
+  "author": "Johannes Kneer",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": -374.58,
+      "left": -33.83,
+      "attrs": { "builder": "rust-nostd-esp" }
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb1",
+      "top": -499.8,
+      "left": 13.1,
+      "rotate": -178.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb2",
+      "top": -498.5,
+      "left": 39.2,
+      "rotate": -175.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb3",
+      "top": -495.7,
+      "left": 65.3,
+      "rotate": -172.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb4",
+      "top": -491.6,
+      "left": 91.1,
+      "rotate": -169.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb5",
+      "top": -486.2,
+      "left": 116.7,
+      "rotate": -166.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb6",
+      "top": -479.4,
+      "left": 142,
+      "rotate": -163.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb7",
+      "top": -471.3,
+      "left": 166.9,
+      "rotate": -160.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb8",
+      "top": -461.9,
+      "left": 191.3,
+      "rotate": -157.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb9",
+      "top": -451.3,
+      "left": 215.3,
+      "rotate": -154.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb10",
+      "top": -439.4,
+      "left": 238.6,
+      "rotate": -151.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb11",
+      "top": -426.3,
+      "left": 261.2,
+      "rotate": -148.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb12",
+      "top": -412.1,
+      "left": 283.2,
+      "rotate": -145.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb13",
+      "top": -396.7,
+      "left": 304.4,
+      "rotate": -142.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb14",
+      "top": -380.2,
+      "left": 324.7,
+      "rotate": -139.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb15",
+      "top": -362.7,
+      "left": 344.2,
+      "rotate": -136.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb16",
+      "top": -344.2,
+      "left": 362.7,
+      "rotate": -133.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb17",
+      "top": -324.7,
+      "left": 380.2,
+      "rotate": -130.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb18",
+      "top": -304.4,
+      "left": 396.7,
+      "rotate": -127.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb19",
+      "top": -283.2,
+      "left": 412.1,
+      "rotate": -124.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb20",
+      "top": -261.2,
+      "left": 426.3,
+      "rotate": -121.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb21",
+      "top": -238.6,
+      "left": 439.4,
+      "rotate": -118.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb22",
+      "top": -215.3,
+      "left": 451.3,
+      "rotate": -115.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb23",
+      "top": -191.3,
+      "left": 461.9,
+      "rotate": -112.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb24",
+      "top": -166.9,
+      "left": 471.3,
+      "rotate": -109.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb25",
+      "top": -142,
+      "left": 479.4,
+      "rotate": -106.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb26",
+      "top": -116.7,
+      "left": 486.2,
+      "rotate": -103.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb27",
+      "top": -91.1,
+      "left": 491.6,
+      "rotate": -100.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb28",
+      "top": -65.3,
+      "left": 495.7,
+      "rotate": -97.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb29",
+      "top": -39.2,
+      "left": 498.5,
+      "rotate": -94.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb30",
+      "top": -13.1,
+      "left": 499.8,
+      "rotate": -91.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb31",
+      "top": 13.1,
+      "left": 499.8,
+      "rotate": -88.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb32",
+      "top": 39.2,
+      "left": 498.5,
+      "rotate": -85.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb33",
+      "top": 65.3,
+      "left": 495.7,
+      "rotate": -82.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb34",
+      "top": 91.1,
+      "left": 491.6,
+      "rotate": -79.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb35",
+      "top": 116.7,
+      "left": 486.2,
+      "rotate": -76.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb36",
+      "top": 142,
+      "left": 479.4,
+      "rotate": -73.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb37",
+      "top": 166.9,
+      "left": 471.3,
+      "rotate": -70.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb38",
+      "top": 191.3,
+      "left": 461.9,
+      "rotate": -67.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb39",
+      "top": 215.3,
+      "left": 451.3,
+      "rotate": -64.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb40",
+      "top": 238.6,
+      "left": 439.4,
+      "rotate": -61.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb41",
+      "top": 261.2,
+      "left": 426.3,
+      "rotate": -58.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb42",
+      "top": 283.2,
+      "left": 412.1,
+      "rotate": -55.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb43",
+      "top": 304.4,
+      "left": 396.7,
+      "rotate": -52.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb44",
+      "top": 324.7,
+      "left": 380.2,
+      "rotate": -49.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb45",
+      "top": 344.2,
+      "left": 362.7,
+      "rotate": -46.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb46",
+      "top": 362.7,
+      "left": 344.2,
+      "rotate": -43.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb47",
+      "top": 380.2,
+      "left": 324.7,
+      "rotate": -40.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb48",
+      "top": 396.7,
+      "left": 304.4,
+      "rotate": -37.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb49",
+      "top": 412.1,
+      "left": 283.2,
+      "rotate": -34.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb50",
+      "top": 426.3,
+      "left": 261.2,
+      "rotate": -31.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb51",
+      "top": 439.4,
+      "left": 238.6,
+      "rotate": -28.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb52",
+      "top": 451.3,
+      "left": 215.3,
+      "rotate": -25.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb53",
+      "top": 461.9,
+      "left": 191.3,
+      "rotate": -22.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb54",
+      "top": 471.3,
+      "left": 166.9,
+      "rotate": -19.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb55",
+      "top": 479.4,
+      "left": 142,
+      "rotate": -16.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb56",
+      "top": 486.2,
+      "left": 116.7,
+      "rotate": -13.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb57",
+      "top": 491.6,
+      "left": 91.1,
+      "rotate": -10.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb58",
+      "top": 495.7,
+      "left": 65.3,
+      "rotate": -7.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb59",
+      "top": 498.5,
+      "left": 39.2,
+      "rotate": -4.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb60",
+      "top": 499.8,
+      "left": 13.1,
+      "rotate": -1.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb61",
+      "top": 499.8,
+      "left": -13.1,
+      "rotate": 1.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb62",
+      "top": 498.5,
+      "left": -39.2,
+      "rotate": 4.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb63",
+      "top": 495.7,
+      "left": -65.3,
+      "rotate": 7.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb64",
+      "top": 491.6,
+      "left": -91.1,
+      "rotate": 10.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb65",
+      "top": 486.2,
+      "left": -116.7,
+      "rotate": 13.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb66",
+      "top": 479.4,
+      "left": -142,
+      "rotate": 16.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb67",
+      "top": 471.3,
+      "left": -166.9,
+      "rotate": 19.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb68",
+      "top": 461.9,
+      "left": -191.3,
+      "rotate": 22.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb69",
+      "top": 451.3,
+      "left": -215.3,
+      "rotate": 25.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb70",
+      "top": 439.4,
+      "left": -238.6,
+      "rotate": 28.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb71",
+      "top": 426.3,
+      "left": -261.2,
+      "rotate": 31.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb72",
+      "top": 412.1,
+      "left": -283.2,
+      "rotate": 34.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb73",
+      "top": 396.7,
+      "left": -304.4,
+      "rotate": 37.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb74",
+      "top": 380.2,
+      "left": -324.7,
+      "rotate": 40.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb75",
+      "top": 362.7,
+      "left": -344.2,
+      "rotate": 43.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb76",
+      "top": 344.2,
+      "left": -362.7,
+      "rotate": 46.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb77",
+      "top": 324.7,
+      "left": -380.2,
+      "rotate": 49.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb78",
+      "top": 304.4,
+      "left": -396.7,
+      "rotate": 52.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb79",
+      "top": 283.2,
+      "left": -412.1,
+      "rotate": 55.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb80",
+      "top": 261.2,
+      "left": -426.3,
+      "rotate": 58.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb81",
+      "top": 238.6,
+      "left": -439.4,
+      "rotate": 61.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb82",
+      "top": 215.3,
+      "left": -451.3,
+      "rotate": 64.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb83",
+      "top": 191.3,
+      "left": -461.9,
+      "rotate": 67.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb84",
+      "top": 166.9,
+      "left": -471.3,
+      "rotate": 70.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb85",
+      "top": 142,
+      "left": -479.4,
+      "rotate": 73.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb86",
+      "top": 116.7,
+      "left": -486.2,
+      "rotate": 76.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb87",
+      "top": 91.1,
+      "left": -491.6,
+      "rotate": 79.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb88",
+      "top": 65.3,
+      "left": -495.7,
+      "rotate": 82.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb89",
+      "top": 39.2,
+      "left": -498.5,
+      "rotate": 85.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb90",
+      "top": 13.1,
+      "left": -499.8,
+      "rotate": 88.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb91",
+      "top": -13.1,
+      "left": -499.8,
+      "rotate": 91.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb92",
+      "top": -39.2,
+      "left": -498.5,
+      "rotate": 94.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb93",
+      "top": -65.3,
+      "left": -495.7,
+      "rotate": 97.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb94",
+      "top": -91.1,
+      "left": -491.6,
+      "rotate": 100.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb95",
+      "top": -116.7,
+      "left": -486.2,
+      "rotate": 103.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb96",
+      "top": -142,
+      "left": -479.4,
+      "rotate": 106.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb97",
+      "top": -166.9,
+      "left": -471.3,
+      "rotate": 109.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb98",
+      "top": -191.3,
+      "left": -461.9,
+      "rotate": 112.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb99",
+      "top": -215.3,
+      "left": -451.3,
+      "rotate": 115.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb100",
+      "top": -238.6,
+      "left": -439.4,
+      "rotate": 118.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb101",
+      "top": -261.2,
+      "left": -426.3,
+      "rotate": 121.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb102",
+      "top": -283.2,
+      "left": -412.1,
+      "rotate": 124.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb103",
+      "top": -304.4,
+      "left": -396.7,
+      "rotate": 127.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb104",
+      "top": -324.7,
+      "left": -380.2,
+      "rotate": 130.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb105",
+      "top": -344.2,
+      "left": -362.7,
+      "rotate": 133.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb106",
+      "top": -362.7,
+      "left": -344.2,
+      "rotate": 136.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb107",
+      "top": -380.2,
+      "left": -324.7,
+      "rotate": 139.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb108",
+      "top": -396.7,
+      "left": -304.4,
+      "rotate": 142.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb109",
+      "top": -412.1,
+      "left": -283.2,
+      "rotate": 145.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb110",
+      "top": -426.3,
+      "left": -261.2,
+      "rotate": 148.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb111",
+      "top": -439.4,
+      "left": -238.6,
+      "rotate": 151.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb112",
+      "top": -451.3,
+      "left": -215.3,
+      "rotate": 154.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb113",
+      "top": -461.9,
+      "left": -191.3,
+      "rotate": 157.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb114",
+      "top": -471.3,
+      "left": -166.9,
+      "rotate": 160.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb115",
+      "top": -479.4,
+      "left": -142,
+      "rotate": 163.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb116",
+      "top": -486.2,
+      "left": -116.7,
+      "rotate": 166.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb117",
+      "top": -491.6,
+      "left": -91.1,
+      "rotate": 169.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb118",
+      "top": -495.7,
+      "left": -65.3,
+      "rotate": 172.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb119",
+      "top": -498.5,
+      "left": -39.2,
+      "rotate": 175.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "rgb120",
+      "top": -499.8,
+      "left": -13.1,
+      "rotate": 178.5,
+      "attrs": {}
     }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "rgb1:DOUT", "rgb2:DIN", "green", [ "h0" ] ],
+    [ "rgb2:DOUT", "rgb3:DIN", "green", [ "h0" ] ],
+    [ "rgb3:DOUT", "rgb4:DIN", "green", [ "h0" ] ],
+    [ "rgb4:DOUT", "rgb5:DIN", "green", [ "h0" ] ],
+    [ "rgb5:DOUT", "rgb6:DIN", "green", [ "h0" ] ],
+    [ "rgb6:DOUT", "rgb7:DIN", "green", [ "h0" ] ],
+    [ "rgb7:DOUT", "rgb8:DIN", "green", [ "h0" ] ],
+    [ "rgb8:DOUT", "rgb9:DIN", "green", [ "h0" ] ],
+    [ "rgb9:DOUT", "rgb10:DIN", "green", [ "h0" ] ],
+    [ "rgb10:DOUT", "rgb11:DIN", "green", [ "h0" ] ],
+    [ "rgb11:DOUT", "rgb12:DIN", "green", [ "h0" ] ],
+    [ "rgb12:DOUT", "rgb13:DIN", "green", [ "h0" ] ],
+    [ "rgb13:DOUT", "rgb14:DIN", "green", [ "h0" ] ],
+    [ "rgb14:DOUT", "rgb15:DIN", "green", [ "h0" ] ],
+    [ "rgb15:DOUT", "rgb16:DIN", "green", [ "h0" ] ],
+    [ "rgb16:DOUT", "rgb17:DIN", "green", [ "h0" ] ],
+    [ "rgb17:DOUT", "rgb18:DIN", "green", [ "h0" ] ],
+    [ "rgb18:DOUT", "rgb19:DIN", "green", [ "h0" ] ],
+    [ "rgb19:DOUT", "rgb20:DIN", "green", [ "h0" ] ],
+    [ "rgb20:DOUT", "rgb21:DIN", "green", [ "h0" ] ],
+    [ "rgb21:DOUT", "rgb22:DIN", "green", [ "h0" ] ],
+    [ "rgb22:DOUT", "rgb23:DIN", "green", [ "h0" ] ],
+    [ "rgb23:DOUT", "rgb24:DIN", "green", [ "h0" ] ],
+    [ "rgb24:DOUT", "rgb25:DIN", "green", [ "h0" ] ],
+    [ "rgb25:DOUT", "rgb26:DIN", "green", [ "h0" ] ],
+    [ "rgb26:DOUT", "rgb27:DIN", "green", [ "h0" ] ],
+    [ "rgb27:DOUT", "rgb28:DIN", "green", [ "h0" ] ],
+    [ "rgb28:DOUT", "rgb29:DIN", "green", [ "h0" ] ],
+    [ "rgb29:DOUT", "rgb30:DIN", "green", [ "h0" ] ],
+    [ "rgb30:DOUT", "rgb31:DIN", "green", [ "h0" ] ],
+    [ "rgb31:DOUT", "rgb32:DIN", "green", [ "h0" ] ],
+    [ "rgb32:DOUT", "rgb33:DIN", "green", [ "h0" ] ],
+    [ "rgb33:DOUT", "rgb34:DIN", "green", [ "h0" ] ],
+    [ "rgb34:DOUT", "rgb35:DIN", "green", [ "h0" ] ],
+    [ "rgb35:DOUT", "rgb36:DIN", "green", [ "h0" ] ],
+    [ "rgb36:DOUT", "rgb37:DIN", "green", [ "h0" ] ],
+    [ "rgb37:DOUT", "rgb38:DIN", "green", [ "h0" ] ],
+    [ "rgb38:DOUT", "rgb39:DIN", "green", [ "h0" ] ],
+    [ "rgb39:DOUT", "rgb40:DIN", "green", [ "h0" ] ],
+    [ "rgb40:DOUT", "rgb41:DIN", "green", [ "h0" ] ],
+    [ "rgb41:DOUT", "rgb42:DIN", "green", [ "h0" ] ],
+    [ "rgb42:DOUT", "rgb43:DIN", "green", [ "h0" ] ],
+    [ "rgb43:DOUT", "rgb44:DIN", "green", [ "h0" ] ],
+    [ "rgb44:DOUT", "rgb45:DIN", "green", [ "h0" ] ],
+    [ "rgb45:DOUT", "rgb46:DIN", "green", [ "h0" ] ],
+    [ "rgb46:DOUT", "rgb47:DIN", "green", [ "h0" ] ],
+    [ "rgb47:DOUT", "rgb48:DIN", "green", [ "h0" ] ],
+    [ "rgb48:DOUT", "rgb49:DIN", "green", [ "h0" ] ],
+    [ "rgb49:DOUT", "rgb50:DIN", "green", [ "h0" ] ],
+    [ "rgb50:DOUT", "rgb51:DIN", "green", [ "h0" ] ],
+    [ "rgb51:DOUT", "rgb52:DIN", "green", [ "h0" ] ],
+    [ "rgb52:DOUT", "rgb53:DIN", "green", [ "h0" ] ],
+    [ "rgb53:DOUT", "rgb54:DIN", "green", [ "h0" ] ],
+    [ "rgb54:DOUT", "rgb55:DIN", "green", [ "h0" ] ],
+    [ "rgb55:DOUT", "rgb56:DIN", "green", [ "h0" ] ],
+    [ "rgb56:DOUT", "rgb57:DIN", "green", [ "h0" ] ],
+    [ "rgb57:DOUT", "rgb58:DIN", "green", [ "h0" ] ],
+    [ "rgb58:DOUT", "rgb59:DIN", "green", [ "h0" ] ],
+    [ "rgb59:DOUT", "rgb60:DIN", "green", [ "h0" ] ],
+    [ "rgb60:DOUT", "rgb61:DIN", "green", [ "h0" ] ],
+    [ "rgb61:DOUT", "rgb62:DIN", "green", [ "h0" ] ],
+    [ "rgb62:DOUT", "rgb63:DIN", "green", [ "h0" ] ],
+    [ "rgb63:DOUT", "rgb64:DIN", "green", [ "h0" ] ],
+    [ "rgb64:DOUT", "rgb65:DIN", "green", [ "h0" ] ],
+    [ "rgb65:DOUT", "rgb66:DIN", "green", [ "h0" ] ],
+    [ "rgb66:DOUT", "rgb67:DIN", "green", [ "h0" ] ],
+    [ "rgb67:DOUT", "rgb68:DIN", "green", [ "h0" ] ],
+    [ "rgb68:DOUT", "rgb69:DIN", "green", [ "h0" ] ],
+    [ "rgb69:DOUT", "rgb70:DIN", "green", [ "h0" ] ],
+    [ "rgb70:DOUT", "rgb71:DIN", "green", [ "h0" ] ],
+    [ "rgb71:DOUT", "rgb72:DIN", "green", [ "h0" ] ],
+    [ "rgb72:DOUT", "rgb73:DIN", "green", [ "h0" ] ],
+    [ "rgb73:DOUT", "rgb74:DIN", "green", [ "h0" ] ],
+    [ "rgb74:DOUT", "rgb75:DIN", "green", [ "h0" ] ],
+    [ "rgb75:DOUT", "rgb76:DIN", "green", [ "h0" ] ],
+    [ "rgb76:DOUT", "rgb77:DIN", "green", [ "h0" ] ],
+    [ "rgb77:DOUT", "rgb78:DIN", "green", [ "h0" ] ],
+    [ "rgb78:DOUT", "rgb79:DIN", "green", [ "h0" ] ],
+    [ "rgb79:DOUT", "rgb80:DIN", "green", [ "h0" ] ],
+    [ "rgb80:DOUT", "rgb81:DIN", "green", [ "h0" ] ],
+    [ "rgb81:DOUT", "rgb82:DIN", "green", [ "h0" ] ],
+    [ "rgb82:DOUT", "rgb83:DIN", "green", [ "h0" ] ],
+    [ "rgb83:DOUT", "rgb84:DIN", "green", [ "h0" ] ],
+    [ "rgb84:DOUT", "rgb85:DIN", "green", [ "h0" ] ],
+    [ "rgb85:DOUT", "rgb86:DIN", "green", [ "h0" ] ],
+    [ "rgb86:DOUT", "rgb87:DIN", "green", [ "h0" ] ],
+    [ "rgb87:DOUT", "rgb88:DIN", "green", [ "h0" ] ],
+    [ "rgb88:DOUT", "rgb89:DIN", "green", [ "h0" ] ],
+    [ "rgb89:DOUT", "rgb90:DIN", "green", [ "h0" ] ],
+    [ "rgb90:DOUT", "rgb91:DIN", "green", [ "h0" ] ],
+    [ "rgb91:DOUT", "rgb92:DIN", "green", [ "h0" ] ],
+    [ "rgb92:DOUT", "rgb93:DIN", "green", [ "h0" ] ],
+    [ "rgb93:DOUT", "rgb94:DIN", "green", [ "h0" ] ],
+    [ "rgb94:DOUT", "rgb95:DIN", "green", [ "h0" ] ],
+    [ "rgb95:DOUT", "rgb96:DIN", "green", [ "h0" ] ],
+    [ "rgb96:DOUT", "rgb97:DIN", "green", [ "h0" ] ],
+    [ "rgb97:DOUT", "rgb98:DIN", "green", [ "h0" ] ],
+    [ "rgb98:DOUT", "rgb99:DIN", "green", [ "h0" ] ],
+    [ "rgb99:DOUT", "rgb100:DIN", "green", [ "h0" ] ],
+    [ "rgb100:DOUT", "rgb101:DIN", "green", [ "h0" ] ],
+    [ "rgb101:DOUT", "rgb102:DIN", "green", [ "h0" ] ],
+    [ "rgb102:DOUT", "rgb103:DIN", "green", [ "h0" ] ],
+    [ "rgb103:DOUT", "rgb104:DIN", "green", [ "h0" ] ],
+    [ "rgb104:DOUT", "rgb105:DIN", "green", [ "h0" ] ],
+    [ "rgb105:DOUT", "rgb106:DIN", "green", [ "h0" ] ],
+    [ "rgb106:DOUT", "rgb107:DIN", "green", [ "h0" ] ],
+    [ "rgb107:DOUT", "rgb108:DIN", "green", [ "h0" ] ],
+    [ "rgb108:DOUT", "rgb109:DIN", "green", [ "h0" ] ],
+    [ "rgb109:DOUT", "rgb110:DIN", "green", [ "h0" ] ],
+    [ "rgb110:DOUT", "rgb111:DIN", "green", [ "h0" ] ],
+    [ "rgb111:DOUT", "rgb112:DIN", "green", [ "h0" ] ],
+    [ "rgb112:DOUT", "rgb113:DIN", "green", [ "h0" ] ],
+    [ "rgb113:DOUT", "rgb114:DIN", "green", [ "h0" ] ],
+    [ "rgb114:DOUT", "rgb115:DIN", "green", [ "h0" ] ],
+    [ "rgb115:DOUT", "rgb116:DIN", "green", [ "h0" ] ],
+    [ "rgb116:DOUT", "rgb117:DIN", "green", [ "h0" ] ],
+    [ "rgb117:DOUT", "rgb118:DIN", "green", [ "h0" ] ],
+    [ "rgb118:DOUT", "rgb119:DIN", "green", [ "h0" ] ],
+    [ "rgb119:DOUT", "rgb120:DIN", "green", [ "h0" ] ],
+    [ "esp:16", "rgb1:DIN", "green", [ "h-48.05", "v-153.6", "h89.75" ] ]
+  ],
+  "serialMonitor": { "display": "terminal", "convertEol": true },
+  "dependencies": {}
 }
