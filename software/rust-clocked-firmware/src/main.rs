@@ -345,66 +345,67 @@ async fn main(spawner: Spawner) {
     let rtc = Rtc::new(peripherals.LPWR);
     println!("Current processor time {}", rtc.current_time());
     //rtc.set_current_time(current_time);
+    /*
+        let esp_wifi_ctrl = &*mk_static!(
+            EspWifiController<'static>,
+            init(timg1.timer0, rng.clone(), peripherals.RADIO_CLK).unwrap()
+        );
 
-    let esp_wifi_ctrl = &*mk_static!(
-        EspWifiController<'static>,
-        init(timg1.timer0, rng.clone(), peripherals.RADIO_CLK).unwrap()
-    );
+        let (controller, interfaces) = esp_wifi::wifi::new(&esp_wifi_ctrl, peripherals.WIFI).unwrap();
 
-    let (controller, interfaces) = esp_wifi::wifi::new(&esp_wifi_ctrl, peripherals.WIFI).unwrap();
-
-    let wifi_interface = interfaces.sta;
-
+        let wifi_interface = interfaces.sta;
+    */
     let timer0 = SystemTimer::new(peripherals.SYSTIMER);
     esp_hal_embassy::init(timer0.alarm0);
 
     info!("Embassy initialized!");
 
-    let config = embassy_net::Config::dhcpv4(Default::default());
+    /*
+        let config = embassy_net::Config::dhcpv4(Default::default());
 
-    let seed = (rng.random() as u64) << 32 | rng.random() as u64;
+        let seed = (rng.random() as u64) << 32 | rng.random() as u64;
 
-    // Init network stack
-    let (stack, runner) = embassy_net::new(
-        wifi_interface,
-        config,
-        mk_static!(StackResources<3>, StackResources::<3>::new()),
-        seed,
-    );
+        // Init network stack
+        let (stack, runner) = embassy_net::new(
+            wifi_interface,
+            config,
+            mk_static!(StackResources<3>, StackResources::<3>::new()),
+            seed,
+        );
 
-    // Store the stack in the static variable.
-    unsafe {
-        NET_STACK.write(stack);
-    }
-
-    spawner.spawn(connection(controller)).ok();
-    spawner.spawn(net_task(runner)).ok();
-
-    let mut rx_buffer = [0; 4096];
-    let mut tx_buffer = [0; 4096];
-
-    loop {
-        if stack.is_link_up() {
-            break;
+        // Store the stack in the static variable.
+        unsafe {
+            NET_STACK.write(stack);
         }
-        Timer::after(Duration::from_millis(500)).await;
-    }
 
-    println!("Waiting to get IP address...");
-    loop {
-        if let Some(config) = stack.config_v4() {
-            println!("Got IP: {}", config.address);
-            break;
+        spawner.spawn(connection(controller)).ok();
+        spawner.spawn(net_task(runner)).ok();
+
+        let mut rx_buffer = [0; 4096];
+        let mut tx_buffer = [0; 4096];
+
+        loop {
+            if stack.is_link_up() {
+                break;
+            }
+            Timer::after(Duration::from_millis(500)).await;
         }
-        Timer::after(Duration::from_millis(500)).await;
-    }
 
-    // Spawn the NTP sync task.
-    // spawner.spawn(ntp_sync_task(&stack)).ok();
-    spawner
-        .spawn(ntp_sync_task(unsafe { NET_STACK.assume_init_ref() }))
-        .ok();
+        println!("Waiting to get IP address...");
+        loop {
+            if let Some(config) = stack.config_v4() {
+                println!("Got IP: {}", config.address);
+                break;
+            }
+            Timer::after(Duration::from_millis(500)).await;
+        }
 
+        // Spawn the NTP sync task.
+        // spawner.spawn(ntp_sync_task(&stack)).ok();
+        spawner
+            .spawn(ntp_sync_task(unsafe { NET_STACK.assume_init_ref() }))
+            .ok();
+    */
     // loop {
     //     Timer::after(Duration::from_millis(1_000)).await;
 
@@ -449,7 +450,7 @@ async fn main(spawner: Spawner) {
     let rmt = Rmt::new(peripherals.RMT, Rate::from_mhz(80)).unwrap();
 
     let rmt_buffer = smartLedBuffer!(60);
-    let mut led = SmartLedsAdapter::new(rmt.channel0, peripherals.GPIO2, rmt_buffer);
+    let mut led = SmartLedsAdapter::new(rmt.channel0, peripherals.GPIO1, rmt_buffer);
     //let delay = Delay::new();
 
     // Create a buffer of 144 LED colors initialized to black.
@@ -465,12 +466,67 @@ async fn main(spawner: Spawner) {
     let mut color = Hsv {
         hue: 200,
         sat: 255,
-        val: 255,
+        val: 32,
     };
 
     // TODO: Spawn some tasks
     //let _ = spawner;
+    let mut current_second = 0;
+    use core::f32;
+    use num_traits::float::FloatCore;
+    loop {
+        let frames = 60;
+        let cycle_duration = Duration::from_millis(1000);
+        let frame_duration = cycle_duration / frames;
 
+        for frame in 0..frames {
+            let t = frame as f32 / frames as f32; // normalized time [0.0, 1.0]
+            let eased = ease_in_out_cubic(t);
+
+            // Compute LED index based on eased motion
+            let position = ((current_second as f32 + eased) * 60.0) % 60.0;
+            let head = position.round() as usize + current_second;
+
+            // Clear buffer
+            for led_pixel in data.iter_mut() {
+                *led_pixel = black;
+            }
+
+            // Light trail length proportional to speed (first derivative of easing)
+            let speed = if frame > 0 {
+                let t_prev = (frame - 1) as f32 / frames as f32;
+                (ease_in_out_cubic(t) - ease_in_out_cubic(t_prev)) * 60.0
+            } else {
+                1.0
+            };
+            let trail_len = (1.0 + speed * 4.0).clamp(1.0, 20.0) as usize;
+
+            for i in 0..trail_len {
+                let led_pos = (head + 60 - i) % 60;
+                let fade = 1.0 - (i as f32 / trail_len as f32);
+                let rgb = hsv2rgb(Hsv {
+                    hue: color.hue,
+                    sat: 255,
+                    val: (fade * color.val as f32) as u8,
+                });
+                data[led_pos] = rgb;
+                //info!(
+                //    "curr {current_second}, frame {frame} hue {}, fade {fade}, rgb {rgb}",
+                //    color.hue,
+                //);
+            }
+            data[current_second] = hsv2rgb(color);
+
+            led.write(data.iter().cloned()).unwrap();
+
+            Timer::after(frame_duration).await;
+        }
+
+        // Update color and current_second
+        color.hue = (color.hue + 1) % 255;
+        current_second = (current_second + 1) % 60;
+    }
+    /*
     loop {
         // Clear the LED buffer.
         for led_pixel in data.iter_mut() {
@@ -509,7 +565,15 @@ async fn main(spawner: Spawner) {
         // index += direction;
 
         color.hue = (color.hue + 1) % 255;
-    }
+    }*/
 
     // for inspiration have a look at the examples at https://github.com/esp-rs/esp-hal/tree/esp-hal-v1.0.0-beta.0/examples/src/bin
+}
+use num_traits::float::FloatCore;
+fn ease_in_out_cubic(t: f32) -> f32 {
+    if t < 0.5 {
+        4.0 * t.powi(3)
+    } else {
+        1.0 - (-2.0 * t + 2.0).powi(3) / 2.0
+    }
 }

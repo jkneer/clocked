@@ -176,5 +176,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# keeping macos files out
+.DS_Store
+
 # get rid of annoying reminders for Johannes - can be removed after 29.03.2025
 *-idf
