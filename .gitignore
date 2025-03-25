@@ -175,3 +175,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# get rid of annoying reminders for Johannes - can be removed after 29.03.2025
+*-idf
