@@ -3,7 +3,14 @@ A clock build with RGB light indicators.
 
 https://github.com/user-attachments/assets/19da2db1-5a2d-457d-999b-6be772b56d4c
 
-Clocked helps young children learn reading the clock while also teaching time management.
+Aside from being just a cool addon to a classical analogue clock. We pursue two educational goals with clocked
+ - Clocked helps young children learn reading the clock while also teaching time management.
+ - Clocked is an interesting device to teach young adolescents microcontroller principles.
+
+## FAQ
+1. I got a clocked during a class session and want the official firmware
+   You need to flash the clock. Currently there is not released firmware, once there is, instructions will be published alongside.
+
 
 ## target audience
 The project is targetted to parents and teachers 
